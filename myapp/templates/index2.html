@@ -1,0 +1,275 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Visualizations</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Interactive Visualizations</h1>
+    <canvas id="visualChart"></canvas>
+    <script>
+        fetch('/api/data/')
+            .then(response => response.json())
+            .then(data => {
+                let jsonData = JSON.parse(data.data);
+                let labels = jsonData.map(item => item.fields.country);
+                let values = jsonData.map(item => item.fields.likelihood);
+                var ctx = document.getElementById('visualChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Likelihood',
+                            data: values,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
+
+
+
+
+  -->
+
+
+  <!-- <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Interactive Visualizations</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f8f9fa;
+              text-align: center;
+          }
+  
+          h1 {
+              background-color: #007bff;
+              color: white;
+              padding: 15px;
+              margin: 0;
+              font-size: 24px;
+          }
+  
+          .chart-container {
+              width: 90%;
+              max-width: 900px;
+              height: 500px; /* Increase height */
+              margin: 20px auto;
+              background: white;
+              padding: 10px;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease;
+          }
+  
+          .chart-container:hover {
+              transform: scale(1.02);
+          }
+  
+          canvas {
+              width: 100% !important;
+              height: 100% !important;
+          }
+      </style>
+  </head>
+  <body>
+      <h1>Interactive Visualizations</h1>
+      <div class="chart-container">
+          <canvas id="visualChart"></canvas>
+      </div>
+  
+      <script>
+          fetch('/api/data/')
+              .then(response => response.json())
+              .then(data => {
+                  let jsonData = JSON.parse(data.data);
+                  let labels = jsonData.map(item => item.fields.country);
+                  let values = jsonData.map(item => item.fields.likelihood);
+                  var ctx = document.getElementById('visualChart').getContext('2d');
+                  new Chart(ctx, {
+                      type: 'line',
+                      data: {
+                          labels: labels,
+                          datasets: [{
+                              label: 'Likelihood',
+                              data: values,
+                              borderColor: 'rgba(255, 99, 132, 1)',
+                              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                              borderWidth: 2
+                          }]
+                      },
+                      options: {
+                          responsive: true,
+                          maintainAspectRatio: false
+                      }
+                  });
+              });
+      </script>
+  </body>
+  </html>
+   -->
+
+
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Interactive Visualizations</title>
+       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+       <style>
+           body {
+               font-family: Arial, sans-serif;
+               margin: 0;
+               padding: 0;
+               background-color: #f8f9fa;
+               text-align: center;
+           }
+   
+           h1 {
+               background-color: #007bff;
+               color: white;
+               padding: 15px;
+               margin: 0;
+               font-size: 24px;
+           }
+   
+           .chart-container {
+               width: 90%;
+               max-width: 900px;
+               height: 500px;
+               margin: 20px auto;
+               background: white;
+               padding: 10px;
+               border-radius: 10px;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+               transition: transform 0.3s ease;
+           }
+   
+           .chart-container:hover {
+               transform: scale(1.02);
+           }
+   
+           canvas {
+               width: 100% !important;
+               height: 100% !important;
+           }
+       </style>
+   </head>
+   <body>
+       <h1>Interactive Visualizations</h1>
+   
+       <!-- Line Chart -->
+       <div class="chart-container">
+           <h2>Likelihood Trend (Line Chart)</h2>
+           <canvas id="lineChart"></canvas>
+       </div>
+   
+       <!-- Bar Chart -->
+       <div class="chart-container">
+           <h2>Likelihood by Country (Bar Chart)</h2>
+           <canvas id="barChart"></canvas>
+       </div>
+   
+       <!-- Pie Chart -->
+       <div class="chart-container">
+           <h2>Likelihood Distribution (Pie Chart)</h2>
+           <canvas id="pieChart"></canvas>
+       </div>
+   
+       <script>
+           fetch('/api/data/')
+               .then(response => response.json())
+               .then(data => {
+                   let jsonData = JSON.parse(data.data);
+                   let labels = jsonData.map(item => item.fields.country);
+                   let values = jsonData.map(item => item.fields.likelihood);
+   
+                   var lineCtx = document.getElementById('lineChart').getContext('2d');
+                   new Chart(lineCtx, {
+                       type: 'line',
+                       data: {
+                           labels: labels,
+                           datasets: [{
+                               label: 'Likelihood',
+                               data: values,
+                               borderColor: 'rgba(255, 99, 132, 1)',
+                               backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                               borderWidth: 2
+                           }]
+                       },
+                       options: {
+                           responsive: true,
+                           maintainAspectRatio: false
+                       }
+                   });
+   
+                   var barCtx = document.getElementById('barChart').getContext('2d');
+                   new Chart(barCtx, {
+                       type: 'bar',
+                       data: {
+                           labels: labels,
+                           datasets: [{
+                               label: 'Likelihood',
+                               data: values,
+                               backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                               borderColor: 'rgba(54, 162, 235, 1)',
+                               borderWidth: 1
+                           }]
+                       },
+                       options: {
+                           responsive: true,
+                           maintainAspectRatio: false
+                       }
+                   });
+   
+                   var pieCtx = document.getElementById('pieChart').getContext('2d');
+                   new Chart(pieCtx, {
+                       type: 'pie',
+                       data: {
+                           labels: labels,
+                           datasets: [{
+                               label: 'Likelihood',
+                               data: values,
+                               backgroundColor: [
+                                   'rgba(255, 99, 132, 0.6)',
+                                   'rgba(54, 162, 235, 0.6)',
+                                   'rgba(255, 206, 86, 0.6)',
+                                   'rgba(75, 192, 192, 0.6)',
+                                   'rgba(153, 102, 255, 0.6)',
+                                   'rgba(255, 159, 64, 0.6)'
+                               ],
+                           }]
+                       },
+                       options: {
+                           responsive: true,
+                           maintainAspectRatio: false
+                       }
+                   });
+   
+               });
+       </script>
+   </body>
+   </html>
+   

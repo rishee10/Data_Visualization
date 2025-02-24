@@ -1,0 +1,168 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Data Visualization Dashboard</h1>
+    <div>
+        <label for="end_year">End Year:</label>
+        <input type="text" id="end_year">
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic">
+        <label for="sector">Sector:</label>
+        <input type="text" id="sector">
+        <label for="region">Region:</label>
+        <input type="text" id="region">
+        <label for="pestle">PEST:</label>
+        <input type="text" id="pestle">
+        <label for="source">Source:</label>
+        <input type="text" id="source">
+        <label for="country">Country:</label>
+        <input type="text" id="country">
+        <label for="city">City:</label>
+        <input type="text" id="city">
+        <button onclick="fetchData()">Apply Filters</button>
+    </div>
+    <canvas id="chart"></canvas>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html> -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            margin: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        div {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        div:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: block;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        canvas {
+            background: white;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        canvas:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Visualization Dashboard</h1>
+    <div>
+        <label for="end_year">End Year:</label>
+        <input type="text" id="end_year">
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic">
+        <label for="sector">Sector:</label>
+        <input type="text" id="sector">
+        <label for="region">Region:</label>
+        <input type="text" id="region">
+        <label for="pestle">PEST:</label>
+        <input type="text" id="pestle">
+        <label for="source">Source:</label>
+        <input type="text" id="source">
+        <label for="country">Country:</label>
+        <input type="text" id="country">
+        <label for="city">City:</label>
+        <input type="text" id="city">
+        <button onclick="fetchData()">Apply Filters</button>
+    </div>
+    <canvas id="chart"></canvas>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
