@@ -30,6 +30,26 @@ Database: SQLite
 
 Clone the Repository:
 
-```git clone https://github.com/rishee10/Data_Visualization.git```
+```git clone https://github.com/rishee10/Data_Visualization```
+
+```cd Data_Visualization```
+
+Create a Virtual Environment:
+
+```python -m venv venv```
+
+```venv\Scripts\activate ```
+
+Install Dependencies:
+
+```pip install -r requirements.txt```
+
+Run Migrations:
+
+```python manage.py migrate```
+
+Run the Development Server:
+
+```python manage.py runserver```
 
 
